@@ -23,8 +23,8 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     options = this.options({
       out: '',
-      seperator: '-',
-      hash: 'md5'
+      separator: '-',
+      algorithm: 'md5'
     });
 
     this.filesSrc.forEach(function(filepath) {
@@ -35,8 +35,8 @@ module.exports = function(grunt) {
       base = path.basename(filepath, ext);
 
       data = grunt.file.read(filepath);
-      digest = crypto.createHash(options.hash).update(data).digest('hex');
-      fileDigest = [base, options.seperator, digest, ext].join('');
+      digest = crypto.createHash(options.algorithm).update(data).digest('hex');
+      fileDigest = [base, options.separator, digest, ext].join('');
       filepathDigest = filepath.replace(file, fileDigest);
 
       //Copy file
