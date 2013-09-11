@@ -1,0 +1,43 @@
+{
+  "name": "grunt-digest",
+  "description": "Create digested copies of assets and add mapping to a manifest. Useful with rails",
+  "version": "0.1.1",
+  "homepage": "https://github.com/hkjorgensen/grunt-digest",
+  "author": {
+    "name": "Henrik Kok Jorgensen",
+    "email": "henrikj@me.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hkjorgensen/grunt-digest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hkjorgensen/grunt-digest/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/hkjorgensen/grunt-digest/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
