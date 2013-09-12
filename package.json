@@ -1,7 +1,7 @@
 {
   "name": "grunt-digest",
   "description": "Create digested copies of assets and add mapping to a manifest. Useful with rails applications",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/zendesk/grunt-digest",
   "author": {
     "name": "Henrik Kok Jorgensen",
