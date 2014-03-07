@@ -24,7 +24,8 @@ module.exports = function(grunt) {
     options = this.options({
       out: '',
       separator: '-',
-      algorithm: 'md5'
+      algorithm: 'md5',
+      basePath: false
     });
 
     this.filesSrc.forEach(function(filepath) {
@@ -43,7 +44,11 @@ module.exports = function(grunt) {
       grunt.file.copy(filepath, filepathDigest);
 
       //Add file to map
-      filemap[file] = fileDigest;
+      if(options.basePath) {
+        filemap[path.relative(options.basePath, filepath)] = fileDigest;
+      } else {
+        filemap[file] = fileDigest;
+      }
       grunt.verbose.writeln(file.cyan + ' -> ' + fileDigest.cyan);
 
       //File count
