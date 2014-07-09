@@ -29,11 +29,18 @@ module.exports = function(grunt) {
     });
 
     this.filesSrc.forEach(function(filepath) {
-      var data, file, ext, base, digest, fileDigest, filepathDigest;
+      var data, file, ext, base, digest, fileDigest, filepathDigest, fileWithPath;
 
       file = path.basename(filepath);
       ext = path.extname(file);
       base = path.basename(filepath, ext);
+
+      if(options.basePath) {
+        fileWithPath = path.relative(options.basePath, filepath);
+        base = fileWithPath.substr(0, fileWithPath.lastIndexOf('.'));
+      } else {
+        fileWithPath = file;
+      }
 
       data = grunt.file.read(filepath);
       digest = crypto.createHash(options.algorithm).update(data).digest('hex');
@@ -44,11 +51,7 @@ module.exports = function(grunt) {
       grunt.file.copy(filepath, filepathDigest);
 
       //Add file to map
-      if(options.basePath) {
-        filemap[path.relative(options.basePath, filepath)] = fileDigest;
-      } else {
-        filemap[file] = fileDigest;
-      }
+      filemap[fileWithPath] = fileDigest;
       grunt.verbose.writeln(file.cyan + ' -> ' + fileDigest.cyan);
 
       //File count
