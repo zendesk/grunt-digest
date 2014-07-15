@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       data = grunt.file.read(filepath);
       digest = crypto.createHash(options.algorithm).update(data).digest('hex');
       fileDigest = [base, options.separator, digest, ext].join('');
-      filepathDigest = filepath.replace(file, fileDigest);
+      filepathDigest = filepath.replace(base, fileDigest);
 
       //Copy file
       grunt.file.copy(filepath, filepathDigest);
